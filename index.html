@@ -76,74 +76,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-EasyExcel将数据导出为excel文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/07/16/EasyExcel%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E4%B8%BAexcel%E6%96%87%E4%BB%B6/" class="article-date">
-  <time class="dt-published" datetime="2024-07-16T07:11:29.000Z" itemprop="datePublished">2024-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/07/16/EasyExcel%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E4%B8%BAexcel%E6%96%87%E4%BB%B6/">EasyExcel将数据导出为excel文件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="EasyExcel-导出工具方法"><a href="#EasyExcel-导出工具方法" class="headerlink" title="EasyExcel 导出工具方法"></a>EasyExcel 导出工具方法</h1><p>该工具方法 <code>export2Excel</code> 用于将数据导出为 Excel 文件，并通过 HTTP 响应直接提供给客户端下载。方法定义如下：</p>
-<pre><code class="java">/**
- * EasyExcel导出excel
- *
- * @param fileName 文件名
- * @param response 响应对象
- * @param list     数据列表
- * @param clazz    数据类
- * @throws IOException IO异常
- */
-public static void export2Excel(String fileName, HttpServletResponse response, List&lt;?&gt; list, Class&lt;?&gt; clazz) throws IOException &#123;
-    try (ServletOutputStream out = response.getOutputStream()) &#123;
-        response.setContentType(&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;);
-        response.setCharacterEncoding(&quot;utf-8&quot;);
-        fileName = URLEncoder.encode(fileName, &quot;UTF-8&quot;).replaceAll(&quot;\\+&quot;, &quot;%20&quot;);
-        response.setHeader(&quot;Content-disposition&quot;, &quot;attachment;filename*=utf-8&#39;&#39;&quot; + fileName + &quot;.xlsx&quot;);
-        EasyExcel.write(response.getOutputStream())
-                .head(clazz)
-                .excelType(ExcelTypeEnum.XLSX)
-                .sheet(&quot;疗程转门店消耗&quot;)
-                .doWrite(list);
-
-        out.flush();
-    &#125; catch (IOException e) &#123;
-        log.error(&quot;导出失败：&quot; + e.getMessage(), e);
-        throw new IOException(&quot;导出Excel文件失败&quot;, e);
-    &#125;
-    log.info(&quot;导出完成：&quot; + LocalDateTime.now());
-&#125;
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/16/EasyExcel%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E4%B8%BAexcel%E6%96%87%E4%BB%B6/" data-id="clyo30jxy0001scqchsul8hct" data-title="EasyExcel将数据导出为excel文件" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/07/16/hello-world/" class="article-date">
@@ -183,7 +115,7 @@ public static void export2Excel(String fileName, HttpServletResponse response, L
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/16/hello-world/" data-id="clyo30jxu0000scqc9efy1ckb" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/07/16/hello-world/" data-id="clyo3v5qi00009gqc6r5b99l2" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -224,10 +156,6 @@ public static void export2Excel(String fileName, HttpServletResponse response, L
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2024/07/16/EasyExcel%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BA%E4%B8%BAexcel%E6%96%87%E4%BB%B6/">EasyExcel将数据导出为excel文件</a>
-          </li>
         
           <li>
             <a href="/2024/07/16/hello-world/">Hello World</a>
